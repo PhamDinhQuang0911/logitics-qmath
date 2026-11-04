@@ -1,0 +1,305 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1680" height="1200" viewBox="0 0 1680 1200">
+  <defs>
+    <style>
+      .title { font: 800 30px 'Segoe UI', Arial, sans-serif; fill: #17365D; }
+      .sub { font: 500 15px 'Segoe UI', Arial, sans-serif; fill: #475467; }
+      .sec-title { font: 800 16px 'Segoe UI', Arial, sans-serif; fill: #17365D; letter-spacing: 0.5px; }
+      .badge-txt { font: 700 11px 'Segoe UI', Arial, sans-serif; fill: #2F75B5; }
+      
+      .h-main { font: 700 16px 'Segoe UI', Arial, sans-serif; fill: #0F172A; }
+      .h-white { font: 700 16px 'Segoe UI', Arial, sans-serif; fill: #FFFFFF; }
+      .h-dark { font: 700 15px 'Segoe UI', Arial, sans-serif; fill: #17365D; }
+      .desc-dark { font: 400 12px 'Segoe UI', Arial, sans-serif; fill: #475467; }
+      .desc-white { font: 400 12px 'Segoe UI', Arial, sans-serif; fill: #E2E8F0; }
+      .desc-amber { font: 600 12px 'Segoe UI', Arial, sans-serif; fill: #854D0E; }
+      .desc-green { font: 600 12px 'Segoe UI', Arial, sans-serif; fill: #166534; }
+      .desc-red { font: 600 12px 'Segoe UI', Arial, sans-serif; fill: #991B1B; }
+
+      .box-white { fill: #FFFFFF; stroke: #CBD5E1; stroke-width: 1.5; rx: 10; filter: drop-shadow(0 1px 2px rgba(0,0,0,0.04)); }
+      .box-blue { fill: #17365D; stroke: #0F243E; stroke-width: 1.5; rx: 10; }
+      .box-subblue { fill: #2F75B5; stroke: #235B8F; stroke-width: 1.5; rx: 10; }
+      .box-pale { fill: #F0F6FB; stroke: #B9D5EB; stroke-width: 1.5; rx: 10; }
+      .box-green { fill: #ECFDF5; stroke: #6EE7B7; stroke-width: 1.5; rx: 10; }
+      .box-amber { fill: #FEFCE8; stroke: #FDE047; stroke-width: 1.5; rx: 10; }
+      .box-red { fill: #FEF2F2; stroke: #FCA5A5; stroke-width: 1.5; rx: 10; }
+      .box-section { fill: #F8FAFC; stroke: #E2E8F0; stroke-width: 1.5; rx: 14; }
+      
+      .arrow { stroke: #64748B; stroke-width: 1.8; fill: none; marker-end: url(#arrow-head); }
+      .arrow-dash { stroke: #2F75B5; stroke-width: 1.8; stroke-dasharray: 4,3; fill: none; marker-end: url(#arrow-blue); }
+      .arrow-green { stroke: #059669; stroke-width: 1.8; fill: none; marker-end: url(#arrow-green-head); }
+    </style>
+
+    <marker id="arrow-head" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#64748B"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#2F75B5"/>
+    </marker>
+    <marker id="arrow-green-head" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#059669"/>
+    </marker>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1680" height="1200" fill="#FFFFFF"/>
+
+  <!-- ==================== HEADER ==================== -->
+  <g transform="translate(60, 45)">
+    <!-- Logo badge -->
+    <rect x="0" y="0" width="46" height="46" rx="8" fill="#17365D"/>
+    <text x="23" y="29" text-anchor="middle" font-family="'Segoe UI', Arial" font-weight="900" font-size="20" fill="#FFFFFF">LL</text>
+    
+    <text x="58" y="26" class="title">LINKLOG — HỆ ĐIỀU HÀNH BÁO GIÁ LOGISTICS B2B (QUOTE OS)</text>
+    <text x="58" y="48" class="sub">Mô Hình Vận Hành Thực Tế • 15 Nhân Sự Phân Quyền • 2 Chi Nhánh (TP.HCM &amp; Hải Phòng) • Giao Diện 3 Cột • Kiểm Soát Rủi Ro &amp; Cổng Duyệt GP</text>
+
+    <rect x="1390" y="4" width="170" height="36" rx="6" fill="#F0F6FB" stroke="#B9D5EB" stroke-width="1"/>
+    <text x="1475" y="26" text-anchor="middle" class="badge-txt">PHIÊN BẢN TIẾNG VIỆT V2.0</text>
+  </g>
+
+  <!-- ==================== TẦNG 1: KÊNH TIẾP NHẬN & PHÂN QUYỀN NHÂN SỰ ==================== -->
+  <g transform="translate(60, 130)">
+    <text x="0" y="0" class="sec-title">1. KÊNH TIẾP NHẬN YÊU CẦU &amp; 15 NHÂN SỰ VẬN HÀNH (DUAL-BRANCH ROLES)</text>
+
+    <!-- 1.1 Khách hàng gửi yêu cầu -->
+    <rect x="0" y="15" width="240" height="90" class="box-white"/>
+    <text x="120" y="46" text-anchor="middle" class="h-main">Khách Hàng Hỏi Giá</text>
+    <text x="120" y="68" text-anchor="middle" class="desc-dark">Email • Zalo/Chat • Web Form</text>
+    <text x="120" y="86" text-anchor="middle" font-size="11" fill="#64748B">Dữ liệu phi cấu trúc ban đầu</text>
+
+    <!-- 1.2 Sales / Kinh Doanh -->
+    <rect x="270" y="15" width="245" height="90" class="box-pale"/>
+    <text x="392" y="46" text-anchor="middle" class="h-dark">Sales &amp; Phát Triển KH</text>
+    <text x="392" y="68" text-anchor="middle" class="desc-dark">5 Nhân sự • 2 Chi nhánh</text>
+    <text x="392" y="86" text-anchor="middle" font-size="11" font-weight="600" fill="#2F75B5">Minh Anh, Quang Hải... (HCM/HPH)</text>
+
+    <!-- 1.3 Pricing / Chuyên viên Định giá -->
+    <rect x="545" y="15" width="245" height="90" class="box-pale"/>
+    <text x="667" y="46" text-anchor="middle" class="h-dark">Bộ Phận Giá (Pricing)</text>
+    <text x="667" y="68" text-anchor="middle" class="desc-dark">4 Nhân sự chuyên trách</text>
+    <text x="667" y="86" text-anchor="middle" font-size="11" font-weight="600" fill="#2F75B5">Đức Long, Thu Hà... (Hãng tàu/Vendor)</text>
+
+    <!-- 1.4 Ops / CS / Vận hành -->
+    <rect x="820" y="15" width="245" height="90" class="box-pale"/>
+    <text x="942" y="46" text-anchor="middle" class="h-dark">Chăm Sóc &amp; Chứng Từ (CS/Ops)</text>
+    <text x="942" y="68" text-anchor="middle" class="desc-dark">3 Nhân sự nghiệp vụ</text>
+    <text x="942" y="86" text-anchor="middle" font-size="11" font-weight="600" fill="#2F75B5">Kiểm tra Incoterm, Hải quan, Trucking</text>
+
+    <!-- 1.5 Cấp Thẩm Quyền Phê Duyệt -->
+    <rect x="1095" y="15" width="465" height="90" class="box-amber"/>
+    <text x="1327" y="46" text-anchor="middle" class="h-dark" fill="#854D0E">Thẩm Quyền Duyệt Giá (Approval Authority)</text>
+    <text x="1327" y="68" text-anchor="middle" class="desc-amber">3 Nhân sự lãnh đạo cấp cao</text>
+    <text x="1327" y="86" text-anchor="middle" font-size="11" font-weight="700" fill="#B45309">2 Trưởng CN (HCM - Minh Tuấn, HPH - Hoàng Anh) + Giám Đốc Thương Mại</text>
+
+    <!-- Connecting Arrows from Layer 1 to Layer 2 -->
+    <path d="M120 105 L120 145 L392 145 L392 170" class="arrow"/>
+    <path d="M392 105 L392 170" class="arrow"/>
+    <path d="M667 105 L667 170" class="arrow"/>
+    <path d="M942 105 L942 170" class="arrow"/>
+    <path d="M1327 105 L1327 170" class="arrow"/>
+  </g>
+
+  <!-- ==================== TẦNG 2: QUOTE OPERATING SYSTEM & UI 3 CỘT ==================== -->
+  <g transform="translate(60, 310)">
+    <text x="0" y="0" class="sec-title">2. GIAO DIỆN &amp; QUY TRÌNH THỰC THI (LINKLOG UI OPERATING SYSTEM — 3 COLUMNS)</text>
+    <rect x="0" y="15" width="1560" height="195" class="box-section"/>
+
+    <!-- 2.1 Hộp Thư Báo Giá (Quote Inbox) -->
+    <rect x="25" y="45" width="265" height="135" class="box-white"/>
+    <rect x="35" y="55" width="90" height="20" rx="4" fill="#E0F2FE"/>
+    <text x="80" y="69" text-anchor="middle" font-size="10" font-weight="700" fill="#0369A1">INBOX TIẾP NHẬN</text>
+    <text x="157" y="96" text-anchor="middle" class="h-main">Hộp Thư Yêu Cầu</text>
+    <text x="157" y="118" text-anchor="middle" class="desc-dark">Phân loại: Cần thông tin,</text>
+    <text x="157" y="136" text-anchor="middle" class="desc-dark">Sẵn sàng định giá, Đang báo giá</text>
+    <text x="157" y="158" text-anchor="middle" font-size="11" font-weight="600" fill="#2563EB">Bình Dương → Los Angeles (2×40HC)</text>
+
+    <!-- 2.2 Không Gian Báo Giá 3 Cột (Hero Workspace) -->
+    <rect x="330" y="32" width="600" height="160" rx="10" fill="#FFFFFF" stroke="#2563EB" stroke-width="2"/>
+    <rect x="340" y="42" width="150" height="22" rx="4" fill="#DBEAFE"/>
+    <text x="415" y="57" text-anchor="middle" font-size="10" font-weight="800" fill="#1D4ED8">HERO WORKSPACE (3 CỘT)</text>
+
+    <!-- Cột 1 nhỏ -->
+    <rect x="342" y="70" width="180" height="110" rx="6" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="432" y="92" text-anchor="middle" font-size="12" font-weight="700" fill="#0F172A">Cột 1: Lô Hàng</text>
+    <text x="432" y="110" text-anchor="middle" font-size="11" fill="#475467">ABC Furniture (HCM)</text>
+    <text x="432" y="127" text-anchor="middle" font-size="10" fill="#64748B">Pickup: Bình Dương</text>
+    <text x="432" y="143" text-anchor="middle" font-size="10" fill="#64748B">POL: Cát Lái → POD: LA</text>
+    <text x="432" y="162" text-anchor="middle" font-size="10" font-weight="700" fill="#D97706">Thiếu 3 trường (Incoterm)</text>
+
+    <!-- Cột 2 nhỏ -->
+    <rect x="532" y="70" width="205" height="110" rx="6" fill="#F0F9FF" stroke="#BAE6FD"/>
+    <text x="634" y="92" text-anchor="middle" font-size="12" font-weight="700" fill="#0369A1">Cột 2: Bảng Tính Giá</text>
+    <text x="634" y="110" text-anchor="middle" font-size="11" font-weight="600" fill="#0F172A">Option A / B / C (Hãng ONE)</text>
+    <text x="634" y="127" text-anchor="middle" font-size="10" fill="#475467">Cost: $3,540 • Sell: $3,960</text>
+    <text x="634" y="145" text-anchor="middle" font-size="11" font-weight="800" fill="#166534">GP: $420 (10.61%)</text>
+    <text x="634" y="163" text-anchor="middle" font-size="10" font-weight="600" fill="#2563EB">Chỉnh sửa giá Sell trực tiếp</text>
+
+    <!-- Cột 3 nhỏ -->
+    <rect x="747" y="70" width="170" height="110" rx="6" fill="#FEFCE8" stroke="#FEF08A"/>
+    <text x="832" y="92" text-anchor="middle" font-size="12" font-weight="700" fill="#854D0E">Cột 3: Trợ Lý &amp; Cổng</text>
+    <text x="832" y="110" text-anchor="middle" font-size="11" font-weight="800" fill="#166534">XANH (GP ≥ 10%)</text>
+    <text x="832" y="127" text-anchor="middle" font-size="10" font-weight="800" fill="#B45309">VÀNG (GP 5-10%)</text>
+    <text x="832" y="143" text-anchor="middle" font-size="10" font-weight="800" fill="#B91C1C">ĐỎ (GP &lt; 5% / Lỗ)</text>
+    <text x="832" y="162" text-anchor="middle" font-size="10" font-weight="700" fill="#1E293B">Chặn cước chéo HCM/HPH</text>
+
+    <!-- 2.3 Phê Duyệt Biên Lợi Nhuận (Approvals) -->
+    <rect x="965" y="45" width="270" height="135" class="box-white"/>
+    <rect x="975" y="55" width="95" height="20" rx="4" fill="#FEF3C7"/>
+    <text x="1022" y="69" text-anchor="middle" font-size="10" font-weight="700" fill="#92400E">TRUNG TÂM DUYỆT</text>
+    <text x="1100" y="96" text-anchor="middle" class="h-main">Phê Duyệt Biên Lợi Nhuận</text>
+    <text x="1100" y="118" text-anchor="middle" class="desc-dark">So sánh giá gốc &amp; giá yêu cầu</text>
+    <text x="1100" y="136" text-anchor="middle" class="desc-amber">So sánh GP cũ $420 → GP mới $270</text>
+    <text x="1100" y="158" text-anchor="middle" font-size="11" font-weight="700" fill="#047857">Nút bấm: Duyệt • Trả lại • Từ chối</text>
+
+    <!-- 2.4 Xuất Báo Giá & Follow-up (Outcome) -->
+    <rect x="1270" y="45" width="265" height="135" class="box-white"/>
+    <rect x="1280" y="55" width="90" height="20" rx="4" fill="#ECFDF5"/>
+    <text x="1325" y="69" text-anchor="middle" font-size="10" font-weight="700" fill="#065F46">XUẤT &amp; CHỐT DEAL</text>
+    <text x="1402" y="96" text-anchor="middle" class="h-main">Xuất Báo Giá &amp; Theo Dõi</text>
+    <text x="1402" y="118" text-anchor="middle" class="desc-dark">Bản xem trước PDF khách hàng</text>
+    <text x="1402" y="136" text-anchor="middle" font-size="11" font-weight="600" fill="#B91C1C">Bảo mật: Ẩn 100% Cost &amp; GP nội bộ</text>
+    <text x="1402" y="158" text-anchor="middle" font-size="11" font-weight="700" fill="#15803D">Chốt Đơn (Won) / Trượt (Lost)</text>
+
+    <!-- Arrows inside Layer 2 -->
+    <path d="M290 112 L330 112" class="arrow"/>
+    <path d="M930 112 L965 112" class="arrow"/>
+    <path d="M1235 112 L1270 112" class="arrow"/>
+  </g>
+
+  <!-- ==================== TẦNG 3: MULTI-AGENT RUNTIME & COMMERCIAL GATE ==================== -->
+  <g transform="translate(60, 545)">
+    <text x="0" y="0" class="sec-title">3. TẦNG THỰC THI ĐA ĐẠI LÝ &amp; ĐIỀU PHỐI TỰ ĐỘNG (MULTI-AGENT RUNTIME)</text>
+    
+    <!-- 3.1 Điều phối viên Orchestrator -->
+    <rect x="0" y="18" width="245" height="100" class="box-blue"/>
+    <text x="122" y="52" text-anchor="middle" class="h-white">Quote Orchestrator</text>
+    <text x="122" y="74" text-anchor="middle" class="desc-white">Điều phối viên trạng thái tổng thể</text>
+    <text x="122" y="95" text-anchor="middle" font-size="11" fill="#93C5FD">Luân chuyển tác vụ &amp; Giao diện</text>
+
+    <!-- 3.2 Chuỗi Agent nghiệp vụ chính (Pipeline) -->
+    <!-- Intake Agent -->
+    <rect x="275" y="18" width="195" height="100" class="box-pale"/>
+    <text x="372" y="52" text-anchor="middle" class="h-dark">Intake Agent</text>
+    <text x="372" y="74" text-anchor="middle" class="desc-dark">Chuẩn hóa dữ liệu thô</text>
+    <text x="372" y="95" text-anchor="middle" font-size="11" font-weight="600" fill="#2563EB">Phát hiện thiếu Incoterm</text>
+
+    <!-- Pricing Agent -->
+    <rect x="495" y="18" width="195" height="100" class="box-pale"/>
+    <text x="592" y="52" text-anchor="middle" class="h-dark">Pricing Agent</text>
+    <text x="592" y="74" text-anchor="middle" class="desc-dark">Truy xuất cước từ biểu</text>
+    <text x="592" y="95" text-anchor="middle" font-size="11" font-weight="600" fill="#2563EB">Khớp đúng 3 cước có bằng chứng</text>
+
+    <!-- Routing Agent -->
+    <rect x="715" y="18" width="195" height="100" class="box-pale"/>
+    <text x="812" y="52" text-anchor="middle" class="h-dark">Routing Agent</text>
+    <text x="812" y="74" text-anchor="middle" class="desc-dark">Tối ưu hóa hành trình</text>
+    <text x="812" y="95" text-anchor="middle" font-size="11" font-weight="600" fill="#2563EB">Tạo Option A, B, C (21-28 ngày)</text>
+
+    <!-- Vendor Agent -->
+    <rect x="935" y="18" width="195" height="100" class="box-pale"/>
+    <text x="1032" y="52" text-anchor="middle" class="h-dark">Vendor Agent</text>
+    <text x="1032" y="74" text-anchor="middle" class="desc-dark">Đánh giá nhà cung cấp</text>
+    <text x="1032" y="95" text-anchor="middle" font-size="11" font-weight="600" fill="#2563EB">Hãng tàu ONE, Cosco, Trucker</text>
+
+    <!-- Commercial Agent -->
+    <rect x="1155" y="18" width="210" height="100" class="box-pale"/>
+    <text x="1260" y="52" text-anchor="middle" class="h-dark">Commercial Agent</text>
+    <text x="1260" y="74" text-anchor="middle" class="desc-dark">Tính toán Lợi Nhuận Gộp</text>
+    <text x="1260" y="95" text-anchor="middle" font-size="11" font-weight="700" fill="#166534">Tính Cost, Sell, GP, GP%</text>
+
+    <!-- Arrows pipeline -->
+    <path d="M245 68 L275 68" class="arrow"/>
+    <path d="M470 68 L495 68" class="arrow"/>
+    <path d="M690 68 L715 68" class="arrow"/>
+    <path d="M910 68 L935 68" class="arrow"/>
+    <path d="M1130 68 L1155 68" class="arrow"/>
+
+    <!-- 3.3 Hàng dưới: Risk Agent, Follow-up Agent và Cổng Duyệt Con Người -->
+    <!-- Risk Agent -->
+    <rect x="275" y="145" width="290" height="90" class="box-amber"/>
+    <text x="420" y="180" text-anchor="middle" class="h-dark" fill="#854D0E">Risk Agent (Kiểm Soát Rủi Ro)</text>
+    <text x="420" y="202" text-anchor="middle" class="desc-amber">Kiểm tra tính toàn vẹn • Hạn cước hợp đồng</text>
+    <text x="420" y="220" text-anchor="middle" font-size="11" font-weight="700" fill="#B45309">Chặn dùng cước nội địa chéo CN (HPH ↮ HCM)</text>
+
+    <!-- Follow-up Agent -->
+    <rect x="590" y="145" width="290" height="90" class="box-pale"/>
+    <text x="735" y="180" text-anchor="middle" class="h-dark">Follow-up Agent (Trợ Lý Chăm Sóc)</text>
+    <text x="735" y="202" text-anchor="middle" class="desc-dark">Nhắc hẹn SLA sau khi gửi báo giá</text>
+    <text x="735" y="220" text-anchor="middle" font-size="11" font-weight="600" fill="#2563EB">Lên lịch gọi lại: Hôm nay 17:00</text>
+
+    <!-- Human Gate (Cổng Duyệt Con Người) -->
+    <rect x="905" y="145" width="460" height="90" class="box-green"/>
+    <text x="1135" y="180" text-anchor="middle" class="h-dark" fill="#14532D">Cổng Kiểm Soát Con Người (Human-in-the-Loop Gate)</text>
+    <text x="1135" y="202" text-anchor="middle" class="desc-green">Agent chỉ khuyến nghị — Con người có thẩm quyền mới được duyệt</text>
+    <text x="1135" y="220" text-anchor="middle" font-size="11" font-weight="800" fill="#047857">Quy tắc vàng: Không agent nào được tự ý chuyển trạng thái duyệt!</text>
+
+    <!-- Arrows between agents and gate -->
+    <path d="M1260 118 L1260 145" class="arrow"/>
+    <path d="M420 118 L420 145" class="arrow"/>
+    <path d="M565 190 L905 190" class="arrow-dash"/>
+  </g>
+
+  <!-- ==================== TẦNG 4: KHO DỮ LIỆU & QUẢN TRỊ ADMIN ==================== -->
+  <g transform="translate(60, 825)">
+    <text x="0" y="0" class="sec-title">4. TẦNG DỮ LIỆU DÙNG CHUNG, QUẢN TRỊ ADMIN &amp; BẰNG CHỨNG GIÁ CƯỚC</text>
+
+    <!-- 4.1 Bảng trạng thái chuẩn Canonical Quote State -->
+    <rect x="0" y="18" width="280" height="105" class="box-blue"/>
+    <text x="140" y="54" text-anchor="middle" class="h-white">Dữ Liệu Hồ Sơ Báo Giá</text>
+    <text x="140" y="74" text-anchor="middle" font-size="11" fill="#93C5FD">(Canonical Quote State)</text>
+    <text x="140" y="96" text-anchor="middle" class="desc-white">Hồ sơ lô hàng • Tùy chọn giá • Sự kiện</text>
+    <text x="140" y="112" text-anchor="middle" font-size="10" fill="#CBD5E1">Phiên bản bất biến (Immutable State)</text>
+
+    <!-- 4.2 Kho Bằng Chứng Giá Cước (Pricing Data Layer) -->
+    <rect x="310" y="18" width="310" height="105" class="box-blue"/>
+    <text x="465" y="54" text-anchor="middle" class="h-white">Kho Bằng Chứng Cước (Rates)</text>
+    <text x="465" y="74" text-anchor="middle" font-size="11" fill="#93C5FD">(Pricing Evidence Layer)</text>
+    <text x="465" y="96" text-anchor="middle" class="desc-white">Mã biểu cước (RT-0001, RT-0003...)</text>
+    <text x="465" y="112" text-anchor="middle" font-size="10" fill="#CBD5E1">Hạn giá • Chi nhánh áp dụng • Hợp đồng gốc</text>
+
+    <!-- 4.3 Dữ liệu Đối tác & Khách hàng -->
+    <rect x="650" y="18" width="280" height="105" class="box-white"/>
+    <text x="790" y="54" text-anchor="middle" class="h-main">Khách Hàng &amp; Hãng Tàu</text>
+    <text x="790" y="76" text-anchor="middle" class="desc-dark">Hồ sơ công nợ • Điều khoản thương mại</text>
+    <text x="790" y="98" text-anchor="middle" font-size="11" font-weight="600" fill="#2563EB">Tỷ lệ chốt lịch sử (ABC Furniture 33%)</text>
+    <text x="790" y="114" text-anchor="middle" font-size="10" fill="#64748B">Hiệu suất và độ tin cậy của vendor</text>
+
+    <!-- 4.4 Chính Sách & Bảng Điều Khiển Admin Tổng Thể -->
+    <rect x="960" y="18" width="310" height="105" class="box-white"/>
+    <rect x="970" y="26" width="70" height="18" rx="3" fill="#DC2626"/>
+    <text x="1005" y="39" text-anchor="middle" font-size="9" font-weight="900" fill="#FFFFFF">VIP ADMIN</text>
+    <text x="1115" y="54" text-anchor="middle" class="h-main">Chính Sách &amp; Quản Trị Admin</text>
+    <text x="1115" y="76" text-anchor="middle" class="desc-dark">Bảng điều khiển giám sát toàn công ty</text>
+    <text x="1115" y="98" text-anchor="middle" font-size="11" font-weight="700" fill="#B45309">Ngưỡng GP: Xanh ≥10% • Vàng 5-10% • Đỏ &lt;5%</text>
+    <text x="1115" y="114" text-anchor="middle" font-size="10" fill="#64748B">Phân quyền 15 users • So sánh HCM vs Hải Phòng</text>
+
+    <!-- 4.5 Nhật Ký Kiểm Toán & Dấu Vết Trạng Thái -->
+    <rect x="1300" y="18" width="260" height="105" class="box-white"/>
+    <text x="1430" y="54" text-anchor="middle" class="h-main">Nhật Ký Kiểm Toán (Audit)</text>
+    <text x="1430" y="76" text-anchor="middle" class="desc-dark">Dấu vết lịch sử bất biến (Timeline)</text>
+    <text x="1430" y="98" text-anchor="middle" font-size="11" font-weight="600" fill="#0F172A">Ai sửa giá? Ai phê duyệt? Khi nào?</text>
+    <text x="1430" y="114" text-anchor="middle" font-size="10" fill="#64748B">Lưu vết mọi thay đổi phục vụ thanh tra</text>
+
+    <!-- Arrows from Layer 4 back to Layer 3 -->
+    <path d="M140 18 L140 -30 L592 -30 L592 -180" class="arrow-dash"/>
+    <path d="M465 18 L465 -30 L592 -30 L592 -180" class="arrow-dash"/>
+    <path d="M1115 18 L1115 -25 L1135 -25 L1135 -145" class="arrow-dash"/>
+  </g>
+
+  <!-- ==================== TẦNG 5: VÒNG LẶP TRÍ TUỆ THƯƠNG MẠI KHÉP KÍN ==================== -->
+  <g transform="translate(60, 985)">
+    <rect x="0" y="0" width="1560" height="65" rx="10" fill="#ECFDF5" stroke="#10B981" stroke-width="2"/>
+    <text x="780" y="28" text-anchor="middle" font-size="15" font-weight="800" fill="#065F46" letter-spacing="0.5px">
+      VÒNG KHÉP KÍN TRÍ TUỆ THƯƠNG MẠI (COMMERCIAL INTELLIGENCE OPERATING LOOP)
+    </text>
+    <text x="780" y="49" text-anchor="middle" font-size="13" font-weight="600" fill="#047857">
+      Yêu Cầu (Inquiry) → Chuẩn Hóa Lô Hàng → Tìm Cước Hợp Đồng → Bảng Giá 3 Lựa Chọn → Duyệt Rủi Ro GP → Gửi Báo Giá → Theo Dõi → Thắng/Thua → Học Hỏi Định Giá Kế Tiếp
+    </text>
+  </g>
+
+  <!-- ==================== FOOTER ==================== -->
+  <g transform="translate(60, 1075)">
+    <text x="0" y="0" font-size="12" fill="#64748B" font-family="'Segoe UI', Arial">
+      © 2026 LINKLOG B2B Logistics Quote Operating System. Mô tả chuẩn xác kiến trúc hệ thống, phân quyền người dùng và luồng vận hành trên live demo https://demo.flytrustcontent.io.vn.
+    </text>
+  </g>
+</svg>

@@ -1,0 +1,19 @@
+{
+  "name": "linklog-quote-os-clone",
+  "version": "1.0.0",
+  "description": "100% Full Clone of LINKLOG Quote OS (Freight & Trading Quotation Management Platform)",
+  "scripts": {
+    "start": "npx serve -s . -l 3000",
+    "serve": "npx serve -s . -l 3000",
+    "dev": "npx serve -s . -l 3000"
+  },
+  "keywords": [
+    "logistics",
+    "freight-quote",
+    "trading",
+    "multi-agent",
+    "react"
+  ],
+  "author": "",
+  "license": "ISC"
+}
