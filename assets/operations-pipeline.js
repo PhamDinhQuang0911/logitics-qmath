@@ -1,12 +1,19 @@
 /**
  * LINKLOG Quote OS - Module Điều hành Quy trình Phối hợp Liên phòng ban (5 Bước Tiêu chuẩn)
- * Đã tối ưu hóa 100% CSS độc lập - Đảm bảo không bao giờ bị đè chữ, không phụ thuộc CSS bên ngoài.
+ * Thiết kế Floating Hub & Header Button - Không làm vỡ layout, không chèn banner đè giao diện.
  */
 
 (function () {
   'use strict';
 
-  const STORAGE_KEY = 'linklog_shipments_5steps_v2';
+  // Khôi phục ngay padding của body về mặc định nếu trước đó bị set
+  document.body.style.paddingTop = '0px';
+
+  // Xóa banner cũ nếu còn tồn tại
+  const oldBanner = document.getElementById('linklog-operations-banner');
+  if (oldBanner) oldBanner.remove();
+
+  const STORAGE_KEY = 'linklog_shipments_5steps_v3';
 
   const INITIAL_SHIPMENTS = [
     {
@@ -370,79 +377,151 @@
     }
   }
 
+  // Khởi tạo Floating Button thay vì Top Banner đè giao diện
   function initWorkflowUI() {
-    // 1. Tạo thanh Top Banner điều hành với CSS độc lập tuyệt đối
-    const banner = document.createElement('div');
-    banner.id = 'linklog-operations-banner';
-    banner.innerHTML = `
-      <div style="display: flex; align-items: center; gap: 12px;">
-        <div style="width: 38px; height: 38px; border-radius: 8px; background: #2563eb; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 15px; box-shadow: 0 2px 8px rgba(37,99,235,0.6); flex-shrink: 0;">
-          5S
-        </div>
-        <div>
-          <div style="display: flex; align-items: center; gap: 8px;">
-            <span style="font-weight: 800; font-size: 13px; letter-spacing: 0.5px; color: #ffffff; white-space: nowrap;">
-              QUY TRÌNH 5 BƯỚC LIÊN PHÒNG BAN
-            </span>
-            <span style="background: rgba(37,99,235,0.3); border: 1px solid #3b82f6; color: #93c5fd; font-size: 10px; font-weight: 700; padding: 1px 7px; border-radius: 999px; white-space: nowrap;">
-              Live Operations
-            </span>
-          </div>
-          <p style="font-size: 11px; color: #94a3b8; margin: 2px 0 0 0; line-height: 1.2; white-space: nowrap;" class="hidden sm:block">
-            Sales (Booking) ➔ Kế toán/Manager (Duyệt) ➔ Logistics (Cước/Xe) ➔ Ops/Docs (Hải quan/Seal) ➔ B/L ➔ Quyết toán & Hoa hồng
-          </p>
-        </div>
-      </div>
+    // 1. Tạo Nút nổi Floating Action Button ở góc dưới bên phải màn hình
+    const fab = document.createElement('div');
+    fab.id = 'linklog-operations-fab';
+    fab.style.cssText = `
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+      font-family: system-ui, -apple-system, sans-serif;
+    `;
 
-      <div style="display: flex; align-items: center; gap: 10px; flex-shrink: 0;">
-        <button id="btn-open-pipeline-modal" style="background: #2563eb; color: #ffffff; font-weight: 700; font-size: 12px; padding: 7px 14px; border-radius: 8px; border: 1px solid #3b82f6; box-shadow: 0 2px 8px rgba(0,0,0,0.4); cursor: pointer; display: flex; align-items: center; gap: 6px;">
-          <svg style="width: 15px; height: 15px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
-          <span>Mở Bảng Điều Hành 5 Bước</span>
+    fab.innerHTML = `
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <button id="btn-quick-new-booking" style="
+          background: #059669;
+          color: #ffffff;
+          font-weight: 700;
+          font-size: 13px;
+          padding: 10px 16px;
+          border-radius: 999px;
+          border: 1px solid #10b981;
+          box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          transition: all 0.2s;
+        " onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+          <span style="font-size: 16px; line-height: 1;">+</span>
+          <span>Tạo Booking Mới</span>
         </button>
 
-        <button id="btn-create-booking" style="background: #059669; color: #ffffff; font-weight: 700; font-size: 12px; padding: 7px 14px; border-radius: 8px; border: 1px solid #10b981; box-shadow: 0 2px 8px rgba(0,0,0,0.4); cursor: pointer; display: flex; align-items: center; gap: 6px;">
-          <svg style="width: 15px; height: 15px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
-          <span>+ Tạo Booking Mới (Bước 1)</span>
+        <button id="btn-open-pipeline-fab" style="
+          background: linear-gradient(135deg, #1d4ed8, #1e3a8a);
+          color: #ffffff;
+          font-weight: 800;
+          font-size: 13px;
+          padding: 11px 20px;
+          border-radius: 999px;
+          border: 1px solid #3b82f6;
+          box-shadow: 0 6px 20px rgba(29, 78, 216, 0.45);
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          transition: all 0.2s;
+        " onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+          <span style="background: #3b82f6; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 900;">5S</span>
+          <span>QUY TRÌNH 5 BƯỚC</span>
+          <span style="background: #ef4444; color: #ffffff; font-size: 10px; font-weight: 900; padding: 2px 6px; border-radius: 999px;" id="fab-order-count">5</span>
         </button>
       </div>
     `;
 
-    document.body.prepend(banner);
-    document.body.style.paddingTop = '56px';
+    document.body.appendChild(fab);
 
     createPipelineModal();
     createBookingModal();
 
-    document.getElementById('btn-open-pipeline-modal').addEventListener('click', openPipelineModal);
-    document.getElementById('btn-create-booking').addEventListener('click', openCreateBookingModal);
+    document.getElementById('btn-open-pipeline-fab').addEventListener('click', openPipelineModal);
+    document.getElementById('btn-quick-new-booking').addEventListener('click', openCreateBookingModal);
+
+    // Cố gắng chèn thêm 1 nút gọn gàng vào header cạnh "+ Tạo Báo Giá Mới" nếu tìm thấy
+    setTimeout(tryInjectHeaderButton, 1000);
+  }
+
+  function tryInjectHeaderButton() {
+    const buttons = Array.from(document.querySelectorAll('button'));
+    const targetBtn = buttons.find(b => b.innerText && b.innerText.includes('Tạo Báo Giá Mới'));
+    if (targetBtn && targetBtn.parentElement && !document.getElementById('btn-header-5steps')) {
+      const headerBtn = document.createElement('button');
+      headerBtn.id = 'btn-header-5steps';
+      headerBtn.className = targetBtn.className;
+      headerBtn.style.cssText = `
+        background: #1e3a8a !important;
+        border: 1px solid #3b82f6 !important;
+        color: #ffffff !important;
+        font-weight: bold !important;
+        margin-right: 8px !important;
+        cursor: pointer !important;
+      `;
+      headerBtn.innerHTML = `<span>⚡ Vận Hành 5 Bước</span>`;
+      headerBtn.addEventListener('click', openPipelineModal);
+      targetBtn.parentElement.insertBefore(headerBtn, targetBtn);
+    }
   }
 
   function createPipelineModal() {
     const modal = document.createElement('div');
     modal.id = 'pipeline-modal-container';
-    modal.className = 'linklog-modal-overlay hidden';
+    modal.style.cssText = `
+      position: fixed;
+      inset: 0;
+      background: rgba(2, 6, 23, 0.85);
+      backdrop-filter: blur(6px);
+      z-index: 100000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      font-family: system-ui, -apple-system, sans-serif;
+    `;
     modal.innerHTML = `
-      <div class="linklog-modal-box">
+      <div style="
+        background: #0f172a;
+        border: 1px solid #334155;
+        border-radius: 16px;
+        color: #f8fafc;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+        width: 100%;
+        max-width: 1340px;
+        height: 92vh;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      ">
         <!-- Header -->
         <div style="padding: 16px 24px; border-bottom: 1px solid #334155; display: flex; align-items: center; justify-content: space-between; background: #1e293b;">
           <div style="display: flex; align-items: center; gap: 12px;">
-            <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(37,99,235,0.25); border: 1px solid #3b82f6; display: flex; align-items: center; justify-content: center; color: #60a5fa;">
-              <svg style="width: 20px; height: 20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+            <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(37,99,235,0.25); border: 1px solid #3b82f6; display: flex; align-items: center; justify-content: center; color: #60a5fa; font-weight: 900; font-size: 16px;">
+              5S
             </div>
             <div>
               <h2 style="font-size: 16px; font-weight: 800; color: #ffffff; margin: 0; display: flex; align-items: center; gap: 8px;">
                 <span>Quy trình Phối hợp Liên phòng ban (Sơ đồ 5 Bước Tiêu Chuẩn)</span>
-                <span style="font-size: 11px; font-weight: 600; color: #93c5fd; background: #1e3a8a; border: 1px solid #3b82f6; padding: 2px 8px; border-radius: 999px;">Active Pipeline</span>
+                <span style="font-size: 11px; font-weight: 600; color: #93c5fd; background: #1e3a8a; border: 1px solid #3b82f6; padding: 2px 8px; border-radius: 999px;">Live Operations</span>
               </h2>
               <p style="font-size: 12px; color: #94a3b8; margin: 2px 0 0 0;">
-                Theo dõi và xử lý trực tiếp: Sales ➔ Kế toán ➔ Logistics ➔ Ops/Docs ➔ Quyết toán & Hoa hồng
+                Sales (Booking) ➔ Kế toán/Manager (Duyệt) ➔ Logistics (Cước/Xe) ➔ Ops/Docs (Hải quan/Seal) ➔ B/L ➔ Quyết toán & Hoa hồng
               </p>
             </div>
           </div>
 
           <div style="display: flex; align-items: center; gap: 10px;">
+            <button id="btn-modal-create-booking" style="font-size: 12px; font-weight: bold; color: #ffffff; background: #059669; border: 1px solid #10b981; padding: 6px 14px; border-radius: 8px; cursor: pointer;">
+              + Tạo Booking Mới
+            </button>
             <button id="btn-refresh-sample-data" style="font-size: 12px; color: #cbd5e1; background: #0f172a; border: 1px solid #475569; padding: 6px 12px; border-radius: 8px; cursor: pointer;">
-              🔄 Nạp lại Dữ liệu Mẫu
+              🔄 Nạp lại Mẫu
             </button>
             <button id="btn-close-pipeline-modal" style="width: 32px; height: 32px; border-radius: 8px; background: #334155; color: #ffffff; border: none; font-size: 16px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center;">
               ✕
@@ -477,12 +556,16 @@
     document.body.appendChild(modal);
 
     document.getElementById('btn-close-pipeline-modal').addEventListener('click', closePipelineModal);
+    document.getElementById('btn-modal-create-booking').addEventListener('click', () => {
+      openCreateBookingModal();
+    });
+
     modal.addEventListener('click', (e) => {
       if (e.target === modal) closePipelineModal();
     });
 
     document.getElementById('btn-refresh-sample-data').addEventListener('click', () => {
-      if (confirm('Khôi phục toàn bộ dữ liệu mẫu 5 bước về ban đầu?')) {
+      if (confirm('Khôi phục dữ liệu mẫu 5 bước về ban đầu?')) {
         localStorage.removeItem(STORAGE_KEY);
         renderKanban();
       }
@@ -507,6 +590,8 @@
     const list = getShipments();
     const countEl = document.getElementById('pipeline-total-orders');
     if (countEl) countEl.innerText = list.length;
+    const fabCount = document.getElementById('fab-order-count');
+    if (fabCount) fabCount.innerText = list.length;
 
     const container = document.getElementById('kanban-columns-container');
     if (!container) return;
@@ -563,7 +648,7 @@
       const items = list.filter(item => item.currentStep === col.step);
 
       const itemsHtml = items.map(item => `
-        <div class="linklog-card" onclick="window.LinklogPipeline.openDetail('${item.id}')">
+        <div style="background: #0b1120; border: 1px solid #1e293b; border-radius: 10px; padding: 12px; margin-bottom: 12px; color: #e2e8f0; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.borderColor='#3b82f6'" onmouseout="this.style.borderColor='#1e293b'" onclick="window.LinklogPipeline.openDetail('${item.id}')">
           <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
             <span style="font-family: monospace; font-size: 11px; font-weight: bold; color: #60a5fa;">${item.id}</span>
             <span style="font-size: 10px; background: #1e293b; color: #cbd5e1; padding: 2px 6px; border-radius: 4px; font-weight: 600;">${item.equipment}</span>
@@ -659,8 +744,8 @@
       `).join('');
 
       return `
-        <div class="linklog-kanban-col">
-          <div class="linklog-kanban-header">
+        <div style="background: #111827; border: 1px solid #1f2937; border-radius: 12px; display: flex; flex-direction: column; height: 100%; overflow: hidden;">
+          <div style="padding: 12px; background: #1e293b; border-bottom: 1px solid #334155;">
             <div style="display: flex; align-items: center; justify-content: space-between;">
               <span style="font-size: 10px; font-weight: 900; text-transform: uppercase; color: ${col.badgeColor}; background: ${col.badgeBg}; padding: 2px 6px; border-radius: 4px; border: 1px solid ${col.borderColor};">
                 ${col.badge}
@@ -698,12 +783,35 @@
     if (!detailModal) {
       detailModal = document.createElement('div');
       detailModal.id = 'shipment-detail-modal';
-      detailModal.className = 'linklog-modal-overlay';
+      detailModal.style.cssText = `
+        position: fixed;
+        inset: 0;
+        background: rgba(2, 6, 23, 0.88);
+        backdrop-filter: blur(8px);
+        z-index: 100001;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+        font-family: system-ui, -apple-system, sans-serif;
+      `;
       document.body.appendChild(detailModal);
     }
 
     detailModal.innerHTML = `
-      <div class="linklog-modal-box" style="max-width: 900px; height: 88vh;">
+      <div style="
+        background: #0f172a;
+        border: 1px solid #334155;
+        border-radius: 16px;
+        color: #f8fafc;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+        width: 100%;
+        max-width: 900px;
+        height: 88vh;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      ">
         <!-- Header -->
         <div style="padding: 16px 24px; border-bottom: 1px solid #334155; display: flex; align-items: center; justify-content: space-between; background: #1e293b;">
           <div>
@@ -715,7 +823,7 @@
               Hàng: <strong style="color: #f1f5f9;">${item.cargo}</strong> • Cont: <strong style="color: #f1f5f9;">${item.equipment}</strong> • Tuyến: <strong style="color: #f1f5f9;">${item.pol} ➔ ${item.pod}</strong>
             </p>
           </div>
-          <button onclick="document.getElementById('shipment-detail-modal').classList.add('hidden')" style="width: 32px; height: 32px; border-radius: 8px; background: #334155; color: #ffffff; border: none; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+          <button onclick="document.getElementById('shipment-detail-modal').style.display='none'" style="width: 32px; height: 32px; border-radius: 8px; background: #334155; color: #ffffff; border: none; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center;">
             ✕
           </button>
         </div>
@@ -784,27 +892,27 @@
               <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; background: #0b1120; padding: 12px; border-radius: 8px; border: 1px solid #1e293b; margin-bottom: 14px;">
                 <div>
                   <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 4px;">Hãng tàu cấp Booking:</label>
-                  <input id="input-step2-carrier" type="text" value="${item.step2.carrier}" class="linklog-input">
+                  <input id="input-step2-carrier" type="text" value="${item.step2.carrier}" style="width: 100%; background: #020617; border: 1px solid #334155; border-radius: 6px; padding: 7px; color: #ffffff; font-size: 12px; box-sizing: border-box;">
                 </div>
                 <div>
                   <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 4px;">Số Booking Note:</label>
-                  <input id="input-step2-booking" type="text" value="${item.step2.bookingNo}" class="linklog-input">
+                  <input id="input-step2-booking" type="text" value="${item.step2.bookingNo}" style="width: 100%; background: #020617; border: 1px solid #334155; border-radius: 6px; padding: 7px; color: #ffffff; font-size: 12px; box-sizing: border-box;">
                 </div>
                 <div>
                   <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 4px;">Tàu / Chuyến:</label>
-                  <input id="input-step2-vessel" type="text" value="${item.step2.vesselVoyage}" class="linklog-input">
+                  <input id="input-step2-vessel" type="text" value="${item.step2.vesselVoyage}" style="width: 100%; background: #020617; border: 1px solid #334155; border-radius: 6px; padding: 7px; color: #ffffff; font-size: 12px; box-sizing: border-box;">
                 </div>
                 <div>
                   <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 4px;">Hạn Closing Time:</label>
-                  <input id="input-step2-closing" type="text" value="${item.step2.closingTime}" class="linklog-input" style="color: #fb7185; font-weight: bold;">
+                  <input id="input-step2-closing" type="text" value="${item.step2.closingTime}" style="width: 100%; background: #020617; border: 1px solid #334155; border-radius: 6px; padding: 7px; color: #fb7185; font-weight: bold; font-size: 12px; box-sizing: border-box;">
                 </div>
                 <div>
                   <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 4px;">Nhà xe kéo cont:</label>
-                  <input id="input-step2-trucker" type="text" value="${item.step2.truckingVendor}" class="linklog-input">
+                  <input id="input-step2-trucker" type="text" value="${item.step2.truckingVendor}" style="width: 100%; background: #020617; border: 1px solid #334155; border-radius: 6px; padding: 7px; color: #ffffff; font-size: 12px; box-sizing: border-box;">
                 </div>
                 <div>
                   <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 4px;">Biển số xe kéo / SĐT:</label>
-                  <input id="input-step2-plate" type="text" value="${item.step2.truckPlate}" class="linklog-input">
+                  <input id="input-step2-plate" type="text" value="${item.step2.truckPlate}" style="width: 100%; background: #020617; border: 1px solid #334155; border-radius: 6px; padding: 7px; color: #ffffff; font-size: 12px; box-sizing: border-box;">
                 </div>
               </div>
 
@@ -820,11 +928,11 @@
                   <h5 style="color: #c084fc; font-size: 12px; font-weight: bold; margin: 0 0 8px 0;">1. Nhiệm vụ Hiện Trường (Ops)</h5>
                   <div style="margin-bottom: 8px;">
                     <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 2px;">Số Container:</label>
-                    <input id="input-step3-cont" type="text" value="${item.step3.containerNo}" class="linklog-input">
+                    <input id="input-step3-cont" type="text" value="${item.step3.containerNo}" style="width: 100%; background: #020617; border: 1px solid #334155; border-radius: 6px; padding: 7px; color: #ffffff; font-size: 12px; box-sizing: border-box;">
                   </div>
                   <div>
                     <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 2px;">Số Chì (Seal No):</label>
-                    <input id="input-step3-seal" type="text" value="${item.step3.sealNo}" class="linklog-input">
+                    <input id="input-step3-seal" type="text" value="${item.step3.sealNo}" style="width: 100%; background: #020617; border: 1px solid #334155; border-radius: 6px; padding: 7px; color: #ffffff; font-size: 12px; box-sizing: border-box;">
                   </div>
                 </div>
 
@@ -832,14 +940,14 @@
                   <h5 style="color: #818cf8; font-size: 12px; font-weight: bold; margin: 0 0 8px 0;">2. Nhiệm vụ Chứng Từ (Docs)</h5>
                   <div style="margin-bottom: 8px;">
                     <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 2px;">Số Tờ Khai Hải Quan:</label>
-                    <input id="input-step3-tk" type="text" value="${item.step3.customsDeclarationNo}" class="linklog-input">
+                    <input id="input-step3-tk" type="text" value="${item.step3.customsDeclarationNo}" style="width: 100%; background: #020617; border: 1px solid #334155; border-radius: 6px; padding: 7px; color: #ffffff; font-size: 12px; box-sizing: border-box;">
                   </div>
                   <div>
                     <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 2px;">Phân Luồng Hải Quan:</label>
-                    <select id="select-step3-channel" class="linklog-select">
+                    <select id="select-step3-channel" style="width: 100%; background: #020617; border: 1px solid #334155; border-radius: 6px; padding: 7px; color: #ffffff; font-size: 12px; box-sizing: border-box;">
                       <option value="XANH (Luồng Xanh)">🟢 Luồng Xanh (Thông quan tự động)</option>
                       <option value="VÀNG (Luồng Vàng)" ${item.step3.customsChannel.includes('VÀNG') ? 'selected' : ''}>🟡 Luồng Vàng (Kiểm tra hồ sơ)</option>
-                      <option value="ĐỎ (Luồng Đỏ)" ${item.step3.customsChannel.includes('ĐỎ') ? 'selected' : ''}>🔴 Luồng Đỏ (Kiểm hóa thực tế)</option>
+                      <option value="ĐỎ (Luồng ĐỎ)" ${item.step3.customsChannel.includes('ĐỎ') ? 'selected' : ''}>🔴 Luồng Đỏ (Kiểm hóa thực tế)</option>
                     </select>
                   </div>
                 </div>
@@ -866,7 +974,7 @@
                   <h5 style="color: #60a5fa; font-size: 12px; font-weight: bold; margin: 0 0 6px 0;">Phát Hành Vận Đơn (B/L)</h5>
                   <div style="margin-bottom: 6px;">
                     <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 2px;">Số Vận Đơn B/L:</label>
-                    <input id="input-step4-blno" type="text" value="${item.step4.blNo}" class="linklog-input">
+                    <input id="input-step4-blno" type="text" value="${item.step4.blNo}" style="width: 100%; background: #020617; border: 1px solid #334155; border-radius: 6px; padding: 7px; color: #ffffff; font-size: 12px; box-sizing: border-box;">
                   </div>
                 </div>
               </div>
@@ -914,48 +1022,68 @@
       </div>
     `;
 
-    detailModal.classList.remove('hidden');
+    detailModal.style.display = 'flex';
   }
 
   function createBookingModal() {
     const modal = document.createElement('div');
     modal.id = 'create-booking-modal';
-    modal.className = 'linklog-modal-overlay hidden';
+    modal.style.cssText = `
+      position: fixed;
+      inset: 0;
+      background: rgba(2, 6, 23, 0.88);
+      backdrop-filter: blur(8px);
+      z-index: 100002;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      font-family: system-ui, -apple-system, sans-serif;
+    `;
     modal.innerHTML = `
-      <div class="linklog-modal-box" style="max-width: 520px; height: auto; max-height: 90vh;">
+      <div style="
+        background: #0f172a;
+        border: 1px solid #334155;
+        border-radius: 16px;
+        color: #f8fafc;
+        width: 100%;
+        max-width: 520px;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+        overflow: hidden;
+      ">
         <div style="padding: 16px 20px; border-bottom: 1px solid #334155; display: flex; align-items: center; justify-content: space-between; background: #1e293b;">
           <div>
             <h3 style="font-size: 15px; font-weight: 800; color: #ffffff; margin: 0;">Lập Booking Form Mới (Bước 1)</h3>
             <p style="font-size: 11px; color: #94a3b8; margin: 2px 0 0 0;">Tiếp nhận yêu cầu cước từ khách hàng</p>
           </div>
-          <button onclick="document.getElementById('create-booking-modal').classList.add('hidden')" style="width: 28px; height: 28px; border-radius: 6px; background: #334155; color: #ffffff; border: none; cursor: pointer;">✕</button>
+          <button onclick="document.getElementById('create-booking-modal').style.display='none'" style="width: 28px; height: 28px; border-radius: 6px; background: #334155; color: #ffffff; border: none; cursor: pointer;">✕</button>
         </div>
 
         <form id="form-new-booking" style="padding: 20px; display: flex; flex-direction: column; gap: 12px; background: #0f172a;">
           <div>
             <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 4px;">Tên Khách Hàng Doanh Nghiệp *</label>
-            <input id="new-customer" type="text" required placeholder="VD: Tập đoàn Gỗ An Cường" class="linklog-input">
+            <input id="new-customer" type="text" required placeholder="VD: Tập đoàn Gỗ An Cường" style="width: 100%; background: #020617; border: 1px solid #334155; border-radius: 6px; padding: 8px; color: #ffffff; font-size: 12px; box-sizing: border-box;">
           </div>
 
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
             <div>
               <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 4px;">Cảng đi (POL) *</label>
-              <input id="new-pol" type="text" required value="Cát Lái (VNHCM)" class="linklog-input">
+              <input id="new-pol" type="text" required value="Cát Lái (VNHCM)" style="width: 100%; background: #020617; border: 1px solid #334155; border-radius: 6px; padding: 8px; color: #ffffff; font-size: 12px; box-sizing: border-box;">
             </div>
             <div>
               <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 4px;">Cảng đến (POD) *</label>
-              <input id="new-pod" type="text" required placeholder="VD: Yokohama (JPYOK)" class="linklog-input">
+              <input id="new-pod" type="text" required placeholder="VD: Yokohama (JPYOK)" style="width: 100%; background: #020617; border: 1px solid #334155; border-radius: 6px; padding: 8px; color: #ffffff; font-size: 12px; box-sizing: border-box;">
             </div>
           </div>
 
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
             <div>
               <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 4px;">Tên Hàng Hóa *</label>
-              <input id="new-cargo" type="text" required placeholder="VD: Nông sản sấy" class="linklog-input">
+              <input id="new-cargo" type="text" required placeholder="VD: Nông sản sấy" style="width: 100%; background: #020617; border: 1px solid #334155; border-radius: 6px; padding: 8px; color: #ffffff; font-size: 12px; box-sizing: border-box;">
             </div>
             <div>
               <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 4px;">Thiết Bị (Cont) *</label>
-              <select id="new-equip" class="linklog-select">
+              <select id="new-equip" style="width: 100%; background: #020617; border: 1px solid #334155; border-radius: 6px; padding: 8px; color: #ffffff; font-size: 12px; box-sizing: border-box;">
                 <option value="1 x 20GP">1 x 20GP</option>
                 <option value="2 x 40HQ" selected>2 x 40HQ</option>
                 <option value="3 x 40HQ">3 x 40HQ</option>
@@ -967,11 +1095,11 @@
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
             <div>
               <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 4px;">Giá chào bán (USD) *</label>
-              <input id="new-price" type="number" required value="2400" class="linklog-input">
+              <input id="new-price" type="number" required value="2400" style="width: 100%; background: #020617; border: 1px solid #334155; border-radius: 6px; padding: 8px; color: #ffffff; font-size: 12px; box-sizing: border-box;">
             </div>
             <div>
               <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 4px;">Điều kiện thanh toán *</label>
-              <select id="new-term" class="linklog-select">
+              <select id="new-term" style="width: 100%; background: #020617; border: 1px solid #334155; border-radius: 6px; padding: 8px; color: #ffffff; font-size: 12px; box-sizing: border-box;">
                 <option value="Trả trước 100%">Trả trước 100%</option>
                 <option value="Công nợ 15 ngày">Công nợ 15 ngày</option>
                 <option value="Công nợ 30 ngày (Credit 30 days)" selected>Công nợ 30 ngày</option>
@@ -981,7 +1109,7 @@
           </div>
 
           <div style="display: flex; justify-content: flex-end; gap: 8px; margin-top: 8px;">
-            <button type="button" onclick="document.getElementById('create-booking-modal').classList.add('hidden')" style="padding: 7px 14px; background: #334155; color: #ffffff; border: none; border-radius: 6px; font-size: 12px; cursor: pointer;">Hủy</button>
+            <button type="button" onclick="document.getElementById('create-booking-modal').style.display='none'" style="padding: 7px 14px; background: #334155; color: #ffffff; border: none; border-radius: 6px; font-size: 12px; cursor: pointer;">Hủy</button>
             <button type="submit" style="padding: 7px 16px; background: #059669; color: #ffffff; font-weight: bold; border: none; border-radius: 6px; font-size: 12px; cursor: pointer;">Lưu & Bắt Đầu Bước 1</button>
           </div>
         </form>
@@ -1069,7 +1197,7 @@
 
       list.unshift(newShipment);
       saveShipments(list);
-      modal.classList.add('hidden');
+      modal.style.display = 'none';
       renderKanban();
       openPipelineModal();
       openOrderDetailModal(newId);
@@ -1079,19 +1207,19 @@
   function openPipelineModal() {
     const m = document.getElementById('pipeline-modal-container');
     if (m) {
-      m.classList.remove('hidden');
+      m.style.display = 'flex';
       renderKanban();
     }
   }
 
   function closePipelineModal() {
     const m = document.getElementById('pipeline-modal-container');
-    if (m) m.classList.add('hidden');
+    if (m) m.style.display = 'none';
   }
 
   function openCreateBookingModal() {
     const m = document.getElementById('create-booking-modal');
-    if (m) m.classList.remove('hidden');
+    if (m) m.style.display = 'flex';
   }
 
   window.LinklogPipeline = {
