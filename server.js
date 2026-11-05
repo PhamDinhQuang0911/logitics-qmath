@@ -15,7 +15,8 @@ const MIME_TYPES = {
   '.pdf': 'application/pdf',
   '.docx': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
   '.xlsx': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-  '.json': 'application/json'
+  '.json': 'application/json',
+  '.sql': 'text/plain; charset=utf-8'
 };
 
 const server = http.createServer((req, res) => {
