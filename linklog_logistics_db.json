@@ -1,408 +1,265 @@
 {
   "users": [
     {
-      "id": "usr_admin_1",
+      "id": "USR-ADMIN",
+      "name": "Phạm Đình Quang (Tổng Quản Trị)",
       "email": "admin@linklog.vn",
       "username": "admin",
       "password": "123456",
-      "fullName": "Phạm Đình Quang (Tổng Quản Trị)",
-      "role": "ADMIN",
-      "region": "ALL",
+      "role": "COMMERCIAL_MANAGER",
+      "roleLabel": "Tổng Quản Trị (Super Admin)",
+      "branch": "ALL",
       "industry": "ALL",
-      "status": "ACTIVE",
-      "createdAt": "2026-11-01"
+      "status": "ACTIVE"
     },
     {
-      "id": "usr_mgr_hcm",
-      "email": "truongphong.hcm@linklog.vn",
-      "username": "manager_hcm",
+      "id": "USR-01",
+      "name": "Nguyễn Minh Anh",
+      "email": "minh.anh@linklog.vn",
+      "username": "minh.anh",
       "password": "123456",
-      "fullName": "Vũ Đức Minh (Trưởng BP Miền Nam)",
-      "role": "MANAGER",
-      "region": "HCM",
-      "industry": "ALL",
-      "status": "ACTIVE",
-      "createdAt": "2026-11-01"
+      "role": "SALES_MANAGER",
+      "roleLabel": "Sales Manager (Ngành Gỗ - HCM)",
+      "branch": "HCM",
+      "industry": "WOOD",
+      "status": "ACTIVE"
     },
     {
-      "id": "usr_acc_all",
+      "id": "USR-AGRI-HCM",
+      "name": "Lê Tuấn Kiệt",
+      "email": "tuan.kiet@linklog.vn",
+      "username": "tuan.kiet",
+      "password": "123456",
+      "role": "SALES",
+      "roleLabel": "Sales Specialist (Nông Sản - HCM)",
+      "branch": "HCM",
+      "industry": "AGRI",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "USR-04",
+      "name": "Lê Quang Hải",
+      "email": "quang.hai@linklog.vn",
+      "username": "quang.hai",
+      "password": "123456",
+      "role": "SALES",
+      "roleLabel": "Sales Specialist (Ngành Gỗ - HPH)",
+      "branch": "HPH",
+      "industry": "WOOD",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "USR-MACH-HPH",
+      "name": "Hoàng Văn Bách",
+      "email": "van.bach@linklog.vn",
+      "username": "van.bach",
+      "password": "123456",
+      "role": "SALES",
+      "roleLabel": "Sales Specialist (Máy Móc - HPH)",
+      "branch": "HPH",
+      "industry": "MACHINERY",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "USR-02",
+      "name": "Trần Đức Long",
+      "email": "duc.long@linklog.vn",
+      "username": "duc.long",
+      "password": "123456",
+      "role": "PRICING_EXECUTIVE",
+      "roleLabel": "Pricing & Logistics (HCM)",
+      "branch": "HCM",
+      "industry": "ALL",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "USR-05",
+      "name": "Nguyễn Thu Hà",
+      "email": "thu.ha@linklog.vn",
+      "username": "thu.ha",
+      "password": "123456",
+      "role": "PRICING_EXECUTIVE",
+      "roleLabel": "Pricing & Logistics (HPH)",
+      "branch": "HPH",
+      "industry": "ALL",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "USR-03",
+      "name": "Phạm Minh Tuấn",
+      "email": "minh.tuan@linklog.vn",
+      "username": "minh.tuan",
+      "password": "123456",
+      "role": "BRANCH_LEAD",
+      "roleLabel": "Trưởng Chi Nhánh HCM",
+      "branch": "HCM",
+      "industry": "ALL",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "USR-06",
+      "name": "Hoàng Anh",
+      "email": "hoang.anh@linklog.vn",
+      "username": "hoang.anh",
+      "password": "123456",
+      "role": "BRANCH_LEAD",
+      "roleLabel": "Trưởng Chi Nhánh Hải Phòng",
+      "branch": "HPH",
+      "industry": "ALL",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "USR-OPS-HCM",
+      "name": "Bùi Thanh Thảo",
+      "email": "thanh.thao@linklog.vn",
+      "username": "thanh.thao",
+      "password": "123456",
+      "role": "OPS_DOCS",
+      "roleLabel": "Hiện Trường & Chứng Từ (HCM)",
+      "branch": "HCM",
+      "industry": "ALL",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "USR-ACC-ALL",
+      "name": "Lê Minh Tâm",
       "email": "ketoan@linklog.vn",
       "username": "ketoan",
       "password": "123456",
-      "fullName": "Lê Minh Tâm (Kế Toán Công Nợ)",
       "role": "ACCOUNTANT",
-      "region": "ALL",
+      "roleLabel": "Kế Toán Công Nợ (Toàn Quốc)",
+      "branch": "ALL",
       "industry": "ALL",
-      "status": "ACTIVE",
-      "createdAt": "2026-11-01"
-    },
-    {
-      "id": "usr_sales_wood_hcm",
-      "email": "sales.go@linklog.vn",
-      "username": "sales_go",
-      "password": "123456",
-      "fullName": "Nguyễn Văn Nam (Sales Gỗ - HCM)",
-      "role": "SALES",
-      "region": "HCM",
-      "industry": "WOOD",
-      "status": "ACTIVE",
-      "createdAt": "2026-11-01"
-    },
-    {
-      "id": "usr_sales_agri_hcm",
-      "email": "sales.nongsan@linklog.vn",
-      "username": "sales_nongsan",
-      "password": "123456",
-      "fullName": "Lê Tuấn Kiệt (Sales Nông Sản - HCM)",
-      "role": "SALES",
-      "region": "HCM",
-      "industry": "AGRI",
-      "status": "ACTIVE",
-      "createdAt": "2026-11-01"
-    },
-    {
-      "id": "usr_log_hcm",
-      "email": "logistics.hcm@linklog.vn",
-      "username": "logistics_hcm",
-      "password": "123456",
-      "fullName": "Phạm Quốc Bảo (Điều Phối Cước HCM)",
-      "role": "LOGISTICS",
-      "region": "HCM",
-      "industry": "ALL",
-      "status": "ACTIVE",
-      "createdAt": "2026-11-01"
-    },
-    {
-      "id": "usr_ops_hph",
-      "email": "ops.hph@linklog.vn",
-      "username": "ops_hph",
-      "password": "123456",
-      "fullName": "Đặng Văn Hùng (Hiện Trường Hải Phòng)",
-      "role": "OPS",
-      "region": "HPH",
-      "industry": "WOOD",
-      "status": "ACTIVE",
-      "createdAt": "2026-11-01"
-    },
-    {
-      "id": "usr_docs_hcm",
-      "email": "docs.hcm@linklog.vn",
-      "username": "docs_hcm",
-      "password": "123456",
-      "fullName": "Hoàng Thu Trang (Chứng Từ HQ - HCM)",
-      "role": "DOCS",
-      "region": "HCM",
-      "industry": "ALL",
-      "status": "ACTIVE",
-      "createdAt": "2026-11-01"
+      "status": "ACTIVE"
     }
   ],
   "shipments": [
     {
       "id": "SHP-2026-0101",
-      "customerName": "ABC Furniture Vietnam",
-      "salesRep": "Nguyễn Văn Nam (Sales Gỗ - HCM)",
-      "salesEmail": "sales.go@linklog.vn",
+      "customerName": "ABC Furniture Export Corp",
+      "salesRep": "Nguyễn Minh Anh",
       "region": "HCM",
       "industry": "WOOD",
       "pol": "Cát Lái (VNHCM)",
-      "pod": "Long Beach (USLGB)",
-      "cargo": "Bàn ghế sofa gỗ sồi xuất khẩu",
-      "equipment": "2 x 40HQ",
+      "pod": "Los Angeles (USLAX)",
+      "cargo": "Đồ gỗ nội thất xuất khẩu (2x40HC)",
       "currentStep": 1,
-      "statusText": "Bước 1: Chờ Kế toán & Trưởng BP duyệt",
-      "createdAt": "2026-11-05 08:30",
+      "statusText": "Bước 1: Chờ Kế toán & Trưởng CN duyệt",
       "step1": {
-        "proposedPriceUsd": 2850,
-        "paymentTerm": "Công nợ 30 ngày",
+        "proposedPriceUsd": 3960,
+        "paymentTerm": "L/C 60 ngày",
         "accountantApproved": false,
-        "accountantName": "",
-        "managerApproved": false,
-        "managerName": ""
+        "managerApproved": false
       },
       "step2": {
-        "carrier": "Maersk Line",
-        "bookingNo": "MSK-99201481",
-        "vesselVoyage": "MAERSK ALABAMA / 2604E",
+        "carrier": "ONE Line",
+        "bookingNo": "ONE-SGN-99201",
         "closingTime": "2026-11-10 18:00",
-        "truckingVendor": "Huy Hoàng Logistics",
-        "truckPlate": "51C-882.91",
-        "bookingFileUrl": "",
-        "isDispatched": false
+        "truckPlate": "51C-882.91"
       },
       "step3": {
-        "containerNo": "MSKU-8921820",
-        "sealNo": "ML-VN-98210",
+        "containerNo": "ONEU-8921820",
+        "sealNo": "ONE-VN-98210",
         "sealFileUrl": "",
-        "isInspectedByOps": false,
-        "customsDeclarationNo": "106299182010",
-        "customsChannel": "VÀNG (Luồng Vàng)",
-        "specializedCheckType": "Hun trùng gỗ",
-        "isCleared": false
+        "customsNo": "106299182010",
+        "channel": "Luồng Vàng"
       },
       "step4": {
-        "handedOverToCarrier": false,
-        "blType": "Master B/L",
-        "blNo": "MSKU99201481",
-        "blFileUrl": "",
-        "blFileUploaded": false,
-        "issuedDate": ""
+        "blNo": "ONEYSGN992014",
+        "blFileUrl": ""
       },
       "step5": {
-        "totalRevenueUsd": 5700,
-        "totalCostUsd": 4850,
-        "grossProfitUsd": 850,
-        "commissionRatePercent": 12,
-        "commissionAmountUsd": 102,
-        "isSettled": false,
-        "settledBy": "",
-        "settledDate": ""
+        "revenueUsd": 3960,
+        "costUsd": 3540,
+        "gpUsd": 420,
+        "commissionUsd": 50.4,
+        "isSettled": false
       }
     },
     {
       "id": "SHP-2026-0102",
       "customerName": "VietWood Industrial Plywood",
-      "salesRep": "Trần Thị Thảo (Sales Gỗ - HPH)",
-      "salesEmail": "admin@linklog.vn",
+      "salesRep": "Lê Quang Hải",
       "region": "HPH",
       "industry": "WOOD",
       "pol": "Hải Phòng (VNHPH)",
-      "pod": "Qingdao (CNQDG)",
-      "cargo": "Ván ép cốp pha phủ phim",
-      "equipment": "3 x 20GP",
+      "pod": "Hamburg (DEHAM)",
+      "cargo": "Gỗ ván ép phủ phim (1x40HC)",
       "currentStep": 3,
-      "statusText": "Bước 3: Chờ Ops Hải Phòng kẹp seal & Docs thông quan",
-      "createdAt": "2026-11-04 14:15",
+      "statusText": "Bước 3: Đang kẹp seal & truyền tờ khai tại Hải Phòng",
       "step1": {
-        "proposedPriceUsd": 1100,
-        "paymentTerm": "Trả trước 100%",
+        "proposedPriceUsd": 2705,
+        "paymentTerm": "T/T 30% cọc",
         "accountantApproved": true,
-        "accountantName": "Lê Minh Tâm",
-        "managerApproved": true,
-        "managerName": "Phạm Đình Quang"
+        "managerApproved": true
       },
       "step2": {
-        "carrier": "ONE Line",
-        "bookingNo": "ONE-HPH-2026-881",
-        "vesselVoyage": "ONE CONTINUITY / 042W",
-        "closingTime": "2026-11-06 20:00",
-        "truckingVendor": "Hải An Trucking Đình Vũ",
-        "truckPlate": "15C-341.22",
-        "bookingFileUrl": "",
-        "isDispatched": true
+        "carrier": "Hapag-Lloyd",
+        "bookingNo": "HLCU-HPH-881",
+        "closingTime": "2026-11-08 20:00",
+        "truckPlate": "15C-341.22"
       },
       "step3": {
-        "containerNo": "TGHU-2091821",
-        "sealNo": "ONE-VN-55219",
+        "containerNo": "HLXU-2091821",
+        "sealNo": "HL-VN-55219",
         "sealFileUrl": "",
-        "isInspectedByOps": false,
-        "customsDeclarationNo": "106388102911",
-        "customsChannel": "XANH (Luồng Xanh)",
-        "specializedCheckType": "Hun trùng container",
-        "isCleared": false
+        "customsNo": "106388102911",
+        "channel": "Luồng Xanh"
       },
       "step4": {
-        "handedOverToCarrier": false,
-        "blType": "House B/L",
-        "blNo": "HBL-LL-2026021",
-        "blFileUrl": "",
-        "blFileUploaded": false,
-        "issuedDate": ""
+        "blNo": "HLCUHPH202602",
+        "blFileUrl": ""
       },
       "step5": {
-        "totalRevenueUsd": 3300,
-        "totalCostUsd": 2750,
-        "grossProfitUsd": 550,
-        "commissionRatePercent": 10,
-        "commissionAmountUsd": 55,
-        "isSettled": false,
-        "settledBy": "",
-        "settledDate": ""
+        "revenueUsd": 2705,
+        "costUsd": 2500,
+        "gpUsd": 205,
+        "commissionUsd": 24.6,
+        "isSettled": false
       }
     },
     {
       "id": "SHP-2026-0103",
-      "customerName": "Mekong Fruits & Agri Trade",
-      "salesRep": "Lê Tuấn Kiệt (Sales Nông Sản - HCM)",
-      "salesEmail": "sales.nongsan@linklog.vn",
+      "customerName": "Mekong Agri-Trade International",
+      "salesRep": "Lê Tuấn Kiệt",
       "region": "HCM",
       "industry": "AGRI",
       "pol": "Cát Lái (VNHCM)",
-      "pod": "Tokyo (JPTYO)",
-      "cargo": "Xoài cát sấy dẻo & Thanh long ruột đỏ",
-      "equipment": "1 x 40RF (Lạnh)",
+      "pod": "Los Angeles (USLAX)",
+      "cargo": "Gạo ST25 hữu cơ & Hạt điều (2x40HC)",
       "currentStep": 2,
-      "statusText": "Bước 2: Đã duyệt - Chờ Logistics HCM lấy Booking & đặt xe",
-      "createdAt": "2026-11-04 10:00",
+      "statusText": "Bước 2: Chờ Pricing/Logistics lấy Booking & điều xe",
       "step1": {
-        "proposedPriceUsd": 4200,
-        "paymentTerm": "Thư tín dụng L/C trả ngay",
+        "proposedPriceUsd": 3300,
+        "paymentTerm": "D/P qua ngân hàng",
         "accountantApproved": true,
-        "accountantName": "Lê Minh Tâm",
-        "managerApproved": true,
-        "managerName": "Vũ Đức Minh"
+        "managerApproved": true
       },
       "step2": {
         "carrier": "CMA CGM",
-        "bookingNo": "CMA-SGN-441029",
-        "vesselVoyage": "CMA ANTOINE / 102E",
-        "closingTime": "2026-11-07 16:00",
-        "truckingVendor": "Huy Hoàng Logistics",
-        "truckPlate": "51D-991.44",
-        "bookingFileUrl": "",
-        "isDispatched": false
+        "bookingNo": "CMA-SGN-4410",
+        "closingTime": "2026-11-09 16:00",
+        "truckPlate": "51D-991.44"
       },
       "step3": {
         "containerNo": "CMAU-7721094",
         "sealNo": "CMA-VN-11928",
         "sealFileUrl": "",
-        "isInspectedByOps": false,
-        "customsDeclarationNo": "106499201944",
-        "customsChannel": "VÀNG (Luồng Vàng)",
-        "specializedCheckType": "Kiểm dịch thực vật",
-        "isCleared": false
+        "customsNo": "106499201944",
+        "channel": "Luồng Vàng"
       },
       "step4": {
-        "handedOverToCarrier": false,
-        "blType": "Master B/L",
-        "blNo": "CMA-TYO-99120",
-        "blFileUrl": "",
-        "blFileUploaded": false,
-        "issuedDate": ""
+        "blNo": "CMASGN441029",
+        "blFileUrl": ""
       },
       "step5": {
-        "totalRevenueUsd": 4200,
-        "totalCostUsd": 3450,
-        "grossProfitUsd": 750,
-        "commissionRatePercent": 15,
-        "commissionAmountUsd": 112.5,
-        "isSettled": false,
-        "settledBy": "",
-        "settledDate": ""
-      }
-    },
-    {
-      "id": "SHP-2026-0104",
-      "customerName": "Saigon Garment Manufacturing",
-      "salesRep": "Phạm Hồng Ánh (Sales Dệt May - HCM)",
-      "salesEmail": "admin@linklog.vn",
-      "region": "HCM",
-      "industry": "GARMENT",
-      "pol": "Cái Mép (VNVUT)",
-      "pod": "Rotterdam (NLRTM)",
-      "cargo": "Quần áo thời trang dệt kim xuất khẩu EU",
-      "equipment": "4 x 40HQ",
-      "currentStep": 4,
-      "statusText": "Bước 4: Chờ Ops thanh lý sổ tàu & Docs xuất B/L",
-      "createdAt": "2026-11-02 08:30",
-      "step1": {
-        "proposedPriceUsd": 3950,
-        "paymentTerm": "Công nợ 15 ngày",
-        "accountantApproved": true,
-        "accountantName": "Lê Minh Tâm",
-        "managerApproved": true,
-        "managerName": "Vũ Đức Minh"
-      },
-      "step2": {
-        "carrier": "COSCO Shipping",
-        "bookingNo": "COSU-99812034",
-        "vesselVoyage": "COSCO PRIDE / 098W",
-        "closingTime": "2026-11-05 12:00",
-        "truckingVendor": "Đại Nam Trucking",
-        "truckPlate": "72C-109.88",
-        "bookingFileUrl": "",
-        "isDispatched": true
-      },
-      "step3": {
-        "containerNo": "COSU-8819201",
-        "sealNo": "COSU-VN-77218",
-        "sealFileUrl": "",
-        "isInspectedByOps": true,
-        "customsDeclarationNo": "106199827101",
-        "customsChannel": "XANH (Luồng Xanh)",
-        "specializedCheckType": "C/O Form EUR.1",
-        "isCleared": true
-      },
-      "step4": {
-        "handedOverToCarrier": true,
-        "blType": "House B/L",
-        "blNo": "HBL-LL-SGN-26019",
-        "blFileUrl": "",
-        "blFileUploaded": false,
-        "issuedDate": "2026-11-05"
-      },
-      "step5": {
-        "totalRevenueUsd": 15800,
-        "totalCostUsd": 13600,
-        "grossProfitUsd": 2200,
-        "commissionRatePercent": 12,
-        "commissionAmountUsd": 264,
-        "isSettled": false,
-        "settledBy": "",
-        "settledDate": ""
-      }
-    },
-    {
-      "id": "SHP-2026-0105",
-      "customerName": "An Nam Handicrafts & Furniture",
-      "salesRep": "Nguyễn Văn Nam (Sales Gỗ - HCM)",
-      "salesEmail": "sales.go@linklog.vn",
-      "region": "HCM",
-      "industry": "WOOD",
-      "pol": "Cát Lái (VNHCM)",
-      "pod": "Hamburg (DEHAM)",
-      "cargo": "Tủ gỗ nội thất & đồ mỹ nghệ xuất khẩu",
-      "equipment": "1 x 20GP",
-      "currentStep": 5,
-      "statusText": "Bước 5: Tàu đã chạy - Chờ Kế toán chốt quyết toán & hoa hồng",
-      "createdAt": "2026-10-28 11:20",
-      "step1": {
-        "proposedPriceUsd": 2150,
-        "paymentTerm": "Trả trước 100%",
-        "accountantApproved": true,
-        "accountantName": "Lê Minh Tâm",
-        "managerApproved": true,
-        "managerName": "Vũ Đức Minh"
-      },
-      "step2": {
-        "carrier": "Hapag-Lloyd",
-        "bookingNo": "HLCU-HAM-110291",
-        "vesselVoyage": "AL ZUBARA / 2409W",
-        "closingTime": "2026-10-30 17:00",
-        "truckingVendor": "Huy Hoàng Logistics",
-        "truckPlate": "51C-881.09",
-        "bookingFileUrl": "",
-        "isDispatched": true
-      },
-      "step3": {
-        "containerNo": "HLXU-4410291",
-        "sealNo": "HL-VN-882190",
-        "sealFileUrl": "",
-        "isInspectedByOps": true,
-        "customsDeclarationNo": "106099182099",
-        "customsChannel": "ĐỎ (Luồng Đỏ)",
-        "specializedCheckType": "Hun trùng & C/O",
-        "isCleared": true
-      },
-      "step4": {
-        "handedOverToCarrier": true,
-        "blType": "House B/L",
-        "blNo": "HBL-LL-HCM-9918",
-        "blFileUrl": "",
-        "blFileUploaded": true,
-        "issuedDate": "2026-10-31"
-      },
-      "step5": {
-        "totalRevenueUsd": 2150,
-        "totalCostUsd": 1690,
-        "grossProfitUsd": 460,
-        "commissionRatePercent": 12,
-        "commissionAmountUsd": 55.2,
-        "isSettled": false,
-        "settledBy": "",
-        "settledDate": ""
+        "revenueUsd": 3300,
+        "costUsd": 2900,
+        "gpUsd": 400,
+        "commissionUsd": 48,
+        "isSettled": false
       }
     }
   ],
-  "lastUpdated": "2026-11-05T15:48:22.625Z"
+  "lastUpdated": "2026-11-05T16:09:18.899Z"
 }
